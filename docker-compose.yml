@@ -1,0 +1,26 @@
+services:
+  client:
+    container_name: manual-challenge
+    image: manual-challenge
+    build:
+      context: .
+      dockerfile: ./Dockerfile.dev
+    ports:
+      - 3000:3000
+    develop:
+      watch:
+        - path: ./docker-compose.yml
+          action: rebuild
+        - path: ./Dockerfile.dev
+          action: rebuild
+        - path: ./package.json
+          action: rebuild
+        - path: ./src
+          target: /app/src
+          action: sync
+        - path: ./index.html
+          target: /app/index.html
+          action: sync
+        - path: ./public
+          target: /app/public
+          action: sync

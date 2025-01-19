@@ -1,0 +1,52 @@
+.footer {
+  &-root {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: auto 64px;
+    grid-template-areas:
+      "logo logo product company info social"
+      "copy copy copy copy copy copy"
+    ;
+    row-gap: 64px;
+    column-gap: 16px;
+    margin-top: 64px;
+  }
+
+  &-links {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px
+  }
+
+  &-logo {
+    grid-area: logo;
+    width: 80px;
+  }
+
+
+  &-product {
+    grid-area: product;
+  }
+
+  &-company {
+    grid-area: company;
+  }
+
+  &-info {
+    grid-area: info;
+  }
+
+  &-social {
+    grid-area: social;
+  }
+
+  &-copy {
+    grid-area: copy;
+    align-self: stretch;
+    justify-self: stretch;
+    align-content: center;
+    text-align: center;
+    border-top: 1px solid;
+  }
+}
