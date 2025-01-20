@@ -1,16 +1,21 @@
+@use '../../styles/mixins' as fns;
+
 .landing {
   &-root {
     display: flex;
     flex-flow: column nowrap;
     align-items: stretch;
-    gap: 64px;
+    gap: 5rem;
+    overflow: auto;
+    height: 100vh;
   }
 
   &-hero {
-    height: 750px;
     background-image: url(/hero.jpeg);
     background-size: cover;
     background-repeat: no-repeat;
+    background-position-x: right;
+    padding-block: 5rem;
 
     &-content {
       display: flex;
