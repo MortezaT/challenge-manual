@@ -1,9 +1,12 @@
-import { FC, useCallback } from 'react';
+import { FC, useCallback, useState } from 'react';
 import { Button, Container, Footer, Typography } from '../../components';
 import styles from './styles.module.scss';
+import { QuizDialog } from './components';
 
 export const Landing: FC = () => {
-  const onQuizClick = useCallback(() => {}, []);
+  const [dialogOpen, setDialogOpen] = useState(false);
+  const onQuizStart = useCallback(() => setDialogOpen(true), []);
+  const onQuizClose = useCallback(() => setDialogOpen(false), []);
 
   return (
     <div className={styles['landing-root']}>
@@ -16,7 +19,7 @@ export const Landing: FC = () => {
             We’re working around the clock to bring you a holistic approach to
             your wellness. From top to bottom, inside and out.
           </Typography>
-          <Button onClick={onQuizClick}>Take the quiz</Button>
+          <Button onClick={onQuizStart}>Take the quiz</Button>
         </Container>
       </section>
       <Container component="section" className={styles['landing-title']}>
@@ -59,6 +62,8 @@ export const Landing: FC = () => {
         </div>
       </Container>
       <Footer />
+      <QuizDialog open={dialogOpen} onClose={onQuizClose} />
+      {/* {!dialogOpen ? null : <QuizDialog onClose={onQuizClose} />} */}
     </div>
   );
 };

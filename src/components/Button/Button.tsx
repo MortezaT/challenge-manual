@@ -1,13 +1,10 @@
-import { FC, MouseEventHandler, ReactNode } from 'react';
-
-export type ButtonProps = {
-  children?: ReactNode;
-  onClick: MouseEventHandler<HTMLButtonElement>;
-  className?: string;
-};
-import styles from './styles.module.scss';
 import clsx from 'clsx';
+import { ButtonHTMLAttributes, FC } from 'react';
 import { Typography } from '../Typography';
+import styles from './styles.module.scss';
+
+export type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement>;
+
 export const Button: FC<ButtonProps> = ({ className, children, ...rest }) => {
   return (
     <button {...rest} className={clsx(className, styles['button-root'])}>

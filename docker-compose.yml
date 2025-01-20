@@ -2,6 +2,8 @@ services:
   client:
     container_name: manual-challenge
     image: manual-challenge
+    env_file:
+      - ./.env.local
     build:
       context: .
       dockerfile: ./Dockerfile.dev

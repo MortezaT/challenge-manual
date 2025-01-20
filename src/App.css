@@ -2,20 +2,42 @@
   --primary: #0b3b3c;
   --secondary: #7e0707;
   --white: #fff;
+  --disabled: #bdcdc5;
 
   --color: var(--primary);
   --background: var(--white);
+
+  --action-bg: var(--secondary);
+  --action-border-color: transparent;
+  --action-bg-hover: #983939;
+  --action-bg-active: #6a0505;
 }
+
 @media (prefers-color-scheme: dark) {
   :root {
     --color: var(--white);
     --background: var(--primary);
+    --disabled: #9cb9c3;
+
+    --action-border-color: var(--white);
+    --action-bg: var(--primary);
+    --action-bg-hover: #6d8a83;
+    --action-bg-active: ##91ab9f;
   }
 }
 
+html,
 body {
   margin: 0;
   padding: 0;
+  overflow: hidden;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
   min-height: 100vh;
   background-color: var(--background);
   color: var(--color);

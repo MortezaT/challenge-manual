@@ -1,0 +1,83 @@
+.quiz-dialog {
+  &-root {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+    background: var(--background);
+    color: var(--color);
+  }
+
+  &-container {
+    // overflow-x: hidden;
+    overflow-y: auto;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: stretch;
+    gap: 1rem;
+    height: 100%;
+
+    &>* {
+      padding: 1rem;
+
+      &:not(:last-child) {
+        border-bottom: 1px solid var(--color);
+      }
+    }
+  }
+
+  &-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    margin: 0;
+    padding: 0;
+    width: 30px;
+    height: 30px;
+    background-color: transparent;
+    border: none;
+    color: var(--color);
+  }
+
+  &-head,
+  &-footer {
+    display: flex;
+    gap: 1rem;
+    justify-content: space-between;
+  }
+
+  &-body {
+    flex: 1;
+    // display: flex;
+    // flex-flow: row wrap;
+    // align-items: flex-start;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-rows: repeat(auto-fill, minmax(200px, 1fr));
+    align-items: start;
+
+    gap: 1rem;
+    overflow: auto;
+
+  }
+
+  &-footer {
+    gap: 1rem;
+    justify-content: flex-start;
+  }
+
+  &-option {
+    cursor: pointer;
+    flex: 1;
+    display: flex;
+    gap: 1rem;
+    padding-left: 1rem;
+
+    min-width: 30%;
+  }
+}

@@ -1,6 +1,25 @@
 .button {
   &-root {
     height: 40px;
-    padding-inline: 16px;
+    padding-inline: 1rem;
+    color: var(--white);
+    background: var(--action-bg);
+    border: 1px solid var(--action-border-color);
+
+    &:hover,
+    &:focus {
+      background: var(--action-bg-hover);
+    }
+
+    &:active {
+      background: var(--action-bg-active);
+    }
+
+    &:disabled {
+      opacity: .7;
+      color: var(--disabled);
+      border-color: var(--disabled);
+      background: transparent;
+    }
   }
 }
