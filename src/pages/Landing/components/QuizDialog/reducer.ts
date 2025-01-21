@@ -1,9 +1,15 @@
 import { useCallback, useEffect, useMemo, useReducer } from 'react';
-import { ChoiceAnswer, Question } from '../../../../types/models';
+import {
+  ChoiceAnswer,
+  ChoiceTypeQuestion,
+  Question,
+} from '../../../../types/models';
+
+type QuizStatus = 'in-progress' | 'fail' | 'success';
 
 export type QuizState = {
   step: number;
-  status: 'in-progress' | 'fail' | 'success';
+  status: QuizStatus;
   questions: Question[];
   answers: (ChoiceAnswer | undefined)[];
 };
@@ -34,11 +40,7 @@ const quizReducer = (state: QuizState, action: QuizAction) => {
       const answers = [...state.answers];
       const answer = action.payload;
       answers[step] = answer;
-      const status: QuizState['status'] = answer.isRejection
-        ? 'fail'
-        : step == questions.length - 1
-        ? 'success'
-        : 'in-progress';
+      const status: QuizState['status'] = getStatus(answer, step, questions);
 
       console.log({ status, step, length: questions.length });
 
@@ -54,7 +56,7 @@ const quizReducer = (state: QuizState, action: QuizAction) => {
       const answers = [...state.answers];
       answers[step] = undefined;
 
-      return { ...state, answers };
+      return { ...state, answers, status: 'in-progress' } as QuizState;
     }
 
     default:
@@ -82,6 +84,7 @@ export const useQuizReducer = () => {
     []
   );
   const onBack = useCallback(() => dispatch({ type: 'step-back' }), []);
+  const clearAnswer = useCallback(() => dispatch({ type: 'clear-answer' }), []);
 
   const setAnswer = useCallback(
     (answer: ChoiceAnswer) => dispatch({ type: 'set-answer', payload: answer }),
@@ -98,6 +101,19 @@ export const useQuizReducer = () => {
 
     onBack,
     setAnswer,
+    clearAnswer,
     setQuestions,
   };
 };
+
+function getStatus(
+  answer: ChoiceAnswer,
+  step: number,
+  questions: ChoiceTypeQuestion[]
+): QuizStatus {
+  return answer.isRejection
+    ? 'fail'
+    : step == questions.length - 1
+    ? 'success'
+    : 'in-progress';
+}
