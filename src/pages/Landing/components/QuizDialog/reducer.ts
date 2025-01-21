@@ -42,8 +42,6 @@ const quizReducer = (state: QuizState, action: QuizAction) => {
       answers[step] = answer;
       const status: QuizState['status'] = getStatus(answer, step, questions);
 
-      console.log({ status, step, length: questions.length });
-
       return {
         ...state,
         answers,

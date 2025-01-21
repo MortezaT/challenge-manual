@@ -37,6 +37,7 @@ export const QuizDialog: FC<QuizDialogProps> = ({ open = true, onClose }) => {
         setQuestions(questions);
       });
   }, [open, setQuestions]);
+  console.log(status, step, current.question, current.answer);
 
   if (!questions.length) return null;
 
@@ -47,27 +48,27 @@ export const QuizDialog: FC<QuizDialogProps> = ({ open = true, onClose }) => {
       </button>
       <Container className={styles['quiz-dialog-container']}>
         {status != 'success' ? null : (
-          <Typography variant="heading-3">
-            Great news! We have the perfect treatment for your hair loss.
-            Proceed to www.manual.co, and prepare to say hello to your new hair!
-          </Typography>
+          <Typography variant="heading-3" messageKey="landing.quiz.success" />
         )}
         {status != 'fail' ? null : (
           <>
-            <Typography variant="heading-3" className={styles['quiz-dialog-body']}>
-              Unfortunately, we are unable to prescribe this medication for you.
-              This is because finasteride can alter the PSA levels, which may be
-              used to monitor for cancer. You should discuss this further with
-              your GP or specialist if you would still like this medication.
-            </Typography>
+            <Typography
+              variant="heading-3"
+              className={styles['quiz-dialog-body']}
+              messageKey="landing.quiz.fail"
+            />
             <div>
-              <Button onClick={clearAnswer}>Change your answer</Button>
+              <Button
+                onClick={clearAnswer}
+                messageKey="landing.quiz.fail.action"
+              />
             </div>
           </>
         )}
         {status != 'in-progress' || !current.question ? null : (
           <>
             <Typography
+              dontTranslate
               variant="heading-3"
               className={styles['quiz-dialog-head']}
             >
@@ -90,9 +91,11 @@ export const QuizDialog: FC<QuizDialogProps> = ({ open = true, onClose }) => {
         )}
         {status != 'in-progress' ? null : (
           <div className={styles['quiz-dialog-footer']}>
-            <Button disabled={!step} onClick={onBack}>
-              &lt; Back
-            </Button>
+            <Button
+              disabled={!step}
+              onClick={onBack}
+              messageKey="common.back"
+            />
           </div>
         )}
       </Container>

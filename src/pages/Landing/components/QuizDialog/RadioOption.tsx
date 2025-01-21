@@ -14,9 +14,11 @@ export function RadioOption(props: RadioOptionProps) {
   const { item, name, checked, onSelect } = props;
   const value = '' + item.value;
   const handleSelect = useCallback(() => onSelect(item), [onSelect, item]);
+  const onChange = useCallback(() => {}, []);
 
   return (
     <Typography
+      dontTranslate
       component="label"
       variant="heading-4"
       className={styles['quiz-dialog-option']}
@@ -26,8 +28,8 @@ export function RadioOption(props: RadioOptionProps) {
           name,
           value,
           checked,
+          onChange,
           type: 'radio',
-          onChange: handleSelect,
           onClick: handleSelect,
         }}
       />

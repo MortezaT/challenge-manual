@@ -7,62 +7,82 @@ import { Logo } from '../../icons';
 
 export const Footer: FC = () => (
   <Container component="footer" className={styles['footer-root']}>
-    <Logo className={styles['footer-logo']} alt="Logo" />
+    <Logo className={styles['footer-logo']} alt="Manual" />
     <div className={clsx(styles['footer-links'], styles['footer-product'])}>
-      <Typography component="h4" variant="heading-7">
-        Product
-      </Typography>
-      <Typography component="span" variant="body-4">
-        Popular
-      </Typography>
-      <Typography component="span" variant="body-4">
-        Trending
-      </Typography>
-      <Typography component="span" variant="body-4">
-        Guided
-      </Typography>
-      <Typography component="span" variant="body-4">
-        Products
-      </Typography>
+      <Typography
+        component="h4"
+        variant="heading-7"
+        messageKey="footer.links.product.title"
+      />
+      {(
+        [
+          'footer.links.product.items.popular',
+          'footer.links.product.items.trending',
+          'footer.links.product.items.guided',
+          'footer.links.product.items.products',
+        ] as const
+      ).map((key) => (
+        <Typography
+          key={key}
+          component="h4"
+          variant="heading-7"
+          messageKey={key}
+        />
+      ))}
     </div>
     <div className={clsx(styles['footer-links'], styles['footer-company'])}>
-      <Typography component="h4" variant="heading-7">
-        Company
-      </Typography>
-      <Typography component="span" variant="body-4">
-        Press
-      </Typography>
-      <Typography component="span" variant="body-4">
-        Mission
-      </Typography>
-      <Typography component="span" variant="body-4">
-        Strategy
-      </Typography>
-      <Typography component="span" variant="body-4">
-        About
-      </Typography>
+      <Typography
+        component="h4"
+        variant="heading-7"
+        messageKey="footer.links.company.title"
+      />
+      {(
+        [
+          'footer.links.company.items.popular',
+          'footer.links.company.items.trending',
+          'footer.links.company.items.guided',
+          'footer.links.company.items.products',
+        ] as const
+      ).map((key) => (
+        <Typography
+          key={key}
+          component="h4"
+          variant="heading-7"
+          messageKey={key}
+        />
+      ))}
     </div>
     <div className={clsx(styles['footer-links'], styles['footer-info'])}>
-      <Typography component="h4" variant="heading-7">
-        Info
-      </Typography>
-      <Typography component="span" variant="body-4">
-        Support
-      </Typography>
-      <Typography component="span" variant="body-4">
-        Customer Service
-      </Typography>
-      <Typography component="span" variant="body-4">
-        Get started
-      </Typography>
+      <Typography
+        component="h4"
+        variant="heading-7"
+        messageKey="footer.links.info.title"
+      />
+      {(
+        [
+          'footer.links.info.items.support',
+          'footer.links.info.items.cs',
+          'footer.links.info.items.start',
+        ] as const
+      ).map((key) => (
+        <Typography
+          key={key}
+          component="h4"
+          variant="heading-7"
+          messageKey={key}
+        />
+      ))}
     </div>
     <div className={styles['footer-social']}>
-      <Typography component="h4" variant="heading-7">
-        Follow us
-      </Typography>
+      <Typography
+        component="h4"
+        variant="heading-7"
+        messageKey="footer.links.social.title"
+      />
     </div>
-    <Typography className={styles['footer-copy']}>
-      © 2021 Manual. All rights reserved
-    </Typography>
+    <Typography
+      className={styles['footer-copy']}
+      messageKey="footer.copy-right"
+    />
   </Container>
 );

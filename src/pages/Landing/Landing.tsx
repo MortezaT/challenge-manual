@@ -12,20 +12,24 @@ export const Landing: FC = () => {
     <div className={styles['landing-root']}>
       <section className={styles['landing-hero']}>
         <Container className={styles['landing-hero-content']}>
-          <Typography component="h1" variant="heading-1">
-            Be good to yourself
-          </Typography>
-          <Typography variant="heading-3">
-            We’re working around the clock to bring you a holistic approach to
-            your wellness. From top to bottom, inside and out.
-          </Typography>
-          <Button onClick={onQuizStart}>Take the quiz</Button>
+          <Typography
+            component="h1"
+            variant="heading-1"
+            messageKey="landing.hero.title"
+          />
+          <Typography variant="heading-3" messageKey="landing.hero.desc" />
+          <Button
+            onClick={onQuizStart}
+            messageKey="landing.hero.action.label"
+          />
         </Container>
       </section>
       <Container component="section" className={styles['landing-title']}>
-        <Typography component="h2" variant="heading-3">
-          What we can help with
-        </Typography>
+        <Typography
+          component="h2"
+          variant="heading-3"
+          messageKey="landing.sections.title"
+        />
       </Container>
       <Container component="section" className={styles['landing-hair']}>
         <img
@@ -34,14 +38,16 @@ export const Landing: FC = () => {
           alt="Hair loss"
         />
         <div className={styles['landing-content']}>
-          <Typography variant="heading-7">Hair loss</Typography>
-          <Typography component="h2" variant="heading-4">
-            Hair loss needn’t be irreversible. We can help!
-          </Typography>
-          <Typography variant="body-3">
-            We’re working around the clock to bring you a holistic approach to
-            your wellness. From top to bottom, inside and out.
-          </Typography>
+          <Typography
+            variant="heading-7"
+            messageKey="landing.hair-loss.title"
+          />
+          <Typography
+            component="h2"
+            variant="heading-4"
+            messageKey="landing.hair-loss.title"
+          />
+          <Typography variant="body-3" messageKey="landing.hair-loss.desc" />
         </div>
       </Container>
       <Container component="section" className={styles['landing-ed']}>
@@ -51,14 +57,13 @@ export const Landing: FC = () => {
           alt="Erectile dysfunction"
         />
         <div className={styles['landing-content']}>
-          <Typography variant="heading-7">Erectile dysfunction</Typography>
-          <Typography variant="heading-4" component="h2">
-            Erections can be a tricky thing. But no need to feel down!
-          </Typography>
-          <Typography variant="body-3">
-            We’re working around the clock to bring you a holistic approach to
-            your wellness. From top to bottom, inside and out.
-          </Typography>
+          <Typography variant="heading-7" messageKey="landing.ed.heading" />
+          <Typography
+            variant="heading-4"
+            component="h2"
+            messageKey="landing.ed.title"
+          />
+          <Typography variant="body-3" messageKey="landing.ed.desc" />
         </div>
       </Container>
       <Footer />

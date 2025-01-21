@@ -1,21 +1,39 @@
 import clsx from 'clsx';
-import { ComponentType, FC, ReactNode } from 'react';
+import { ComponentType } from 'react';
+import { useIntl } from 'react-intl';
+import {
+  MessageAndChildren,
+  MessageOrChildren
+} from '../../types/intl';
 import styles from './styles.module.scss';
 
-export type TypographyProps = {
-  children?: ReactNode;
+type TypographyProps_ = {
   className?: string;
   component?: ComponentType | keyof HTMLElementTagNameMap;
   variant?: `body-${3 | 4}` | `heading-${1 | 3 | 4 | 7}`;
 };
 
-export const Typography: FC<TypographyProps> = (props) => {
+export type TypographyProps<TDontTranslate extends boolean> = MessageOrChildren<
+  TypographyProps_,
+  TDontTranslate
+>;
+
+export function Typography<TDontTranslate extends boolean>(
+  props: TypographyProps<TDontTranslate>
+) {
+  const { formatMessage } = useIntl();
   const {
-    children,
     className,
+    dontTranslate,
+    messageKey,
+    children,
+    values,
     variant = 'body',
     component: Component = 'span',
-  } = props;
+  } = props as MessageAndChildren<TypographyProps_>;
+  const content = dontTranslate
+    ? children
+    : formatMessage({ id: messageKey }, values);
 
   return (
     <Component
@@ -25,7 +43,7 @@ export const Typography: FC<TypographyProps> = (props) => {
         styles[`typography-variant-${variant}`]
       )}
     >
-      {children}
+      {content}
     </Component>
   );
-};
+}
