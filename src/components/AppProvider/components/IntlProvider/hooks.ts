@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { IntlShape } from 'react-intl';
-import { LocaleMessages } from '../../../../types/global';
-import { LocaleRecord } from '../../../../types/intl';
+import { LocaleMessages } from '@app/types/global';
+import { LocaleRecord } from '@app/types/intl';
 import { localeMap } from './const';
 
 export function useLocaleMessages(locale: IntlShape['locale']) {

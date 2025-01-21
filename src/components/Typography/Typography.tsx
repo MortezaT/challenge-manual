@@ -4,7 +4,7 @@ import { useIntl } from 'react-intl';
 import {
   MessageAndChildren,
   MessageOrChildren
-} from '../../types/intl';
+} from '@app/types/intl';
 import styles from './styles.module.scss';
 
 type TypographyProps_ = {

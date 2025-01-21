@@ -1,7 +1,7 @@
 import { FC, useCallback, useEffect } from 'react';
-import { Button, Container, Typography } from '../../../../components';
-import { AppConfig } from '../../../../config';
-import { ChoiceAnswer, Questionnaire } from '../../../../types/models';
+import { Button, Container, Typography } from '@app/components';
+import { AppConfig } from '@app/config';
+import { ChoiceAnswer, Questionnaire } from '@app/types/models';
 import { RadioOption } from './RadioOption';
 import { useQuizReducer } from './reducer';
 import styles from './styles.module.scss';
@@ -37,7 +37,6 @@ export const QuizDialog: FC<QuizDialogProps> = ({ open = true, onClose }) => {
         setQuestions(questions);
       });
   }, [open, setQuestions]);
-  console.log(status, step, current.question, current.answer);
 
   if (!questions.length) return null;
 

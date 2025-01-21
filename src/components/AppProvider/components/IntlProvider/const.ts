@@ -1,10 +1,8 @@
-import { LocaleMessages } from '../../../../types/global';
-import { LocaleRecord } from '../../../../types/intl';
-
-export const AppLocalesList = ['en'] as const;
+import { LocaleMessages } from '@app/types/global';
+import { LocaleRecord } from '@app/types/intl';
 
 export const localeMap: LocaleRecord<
   () => Promise<{ default: LocaleMessages }>
 > = {
-  en: () => import('../../../../../lang/en.json'),
+  en: () => import('@lang/en.json'),
 };

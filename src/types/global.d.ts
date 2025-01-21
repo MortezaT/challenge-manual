@@ -1,5 +1,5 @@
-import sourceOfMessages from '../../lang/en.json';
-import { AppLocalesList } from '../components/AppProvider/components/IntlProvider/const';
+import sourceOfMessages from '@app/lang/en.json';
+import { AppLocalesList } from '@app/constants/intl';
 
 export type LocaleMessages = typeof sourceOfMessages;
 

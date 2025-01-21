@@ -1,5 +1,5 @@
 import { FC, useCallback, useState } from 'react';
-import { Button, Container, Footer, Typography } from '../../components';
+import { Button, Container, Footer, Typography } from '@app/components';
 import styles from './styles.module.scss';
 import { QuizDialog } from './components';
 

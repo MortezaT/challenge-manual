@@ -1,6 +1,6 @@
 import { useCallback } from 'react';
-import { Typography } from '../../../../components';
-import { ChoiceAnswer } from '../../../../types/models';
+import { Typography } from '@app/components';
+import { ChoiceAnswer } from '@app/types/models';
 import styles from './styles.module.scss';
 
 export type RadioOptionProps = {

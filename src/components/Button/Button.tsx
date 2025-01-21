@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import { ButtonHTMLAttributes } from 'react';
-import { MessageAndChildren, MessageOrChildren } from '../../types/intl';
+import { MessageAndChildren, MessageOrChildren } from '@app/types/intl';
 import { Typography } from '../Typography';
 import styles from './styles.module.scss';
 

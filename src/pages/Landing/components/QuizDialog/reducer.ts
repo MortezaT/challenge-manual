@@ -3,7 +3,7 @@ import {
   ChoiceAnswer,
   ChoiceTypeQuestion,
   Question,
-} from '../../../../types/models';
+} from '@app/types/models';
 
 type QuizStatus = 'in-progress' | 'fail' | 'success';
 

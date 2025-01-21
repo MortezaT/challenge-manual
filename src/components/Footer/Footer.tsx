@@ -3,7 +3,7 @@ import { FC } from 'react';
 import { Container } from '../Container';
 import { Typography } from '../Typography';
 import styles from './styles.module.scss';
-import { Logo } from '../../icons';
+import { Logo } from '@app/icons';
 
 export const Footer: FC = () => (
   <Container component="footer" className={styles['footer-root']}>
